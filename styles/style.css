@@ -1,0 +1,16 @@
+body{
+  background-color: white;
+  margin: 0;
+  padding: 0;
+
+}
+.space-set{
+  display: flex;
+  align-items: center;
+  align-content: center;
+  text-align: center;
+  color: lime;
+}
+.game-space{
+  margin: 20px, 0px;
+}
