@@ -6,6 +6,12 @@ function Bullet(canvas,posX,posY,speedX,radius,color){
   this.radius = radius;
   this.color = color;
   this.drawBullet();
+  //porpiedades para checar si mi objeto choca con otro.
+  this.left =   function()  { return  this.posX                };
+  this.right =  function()  { return  (this.posX + 20) };
+  this.top =    function()  { return  this.posY                };
+  this.bottom = function()  { return  (this.posY + 20)};
+  //--------------------------------------------------------------
 }
 Bullet.prototype.drawBullet = function(){
   this.ctx.beginPath();
@@ -16,4 +22,10 @@ Bullet.prototype.drawBullet = function(){
 }
 Bullet.prototype.moveBullet = function(){
   this.posX += this.speedX;
+}
+Bullet.prototype.crashWith = function (asteroid){
+  return !((this.bottom() < asteroid.top())    ||
+           (this.top()    > asteroid.bottom()) ||
+           (this.right()  < asteroid.left())   ||
+           (this.left()   > asteroid.right()))
 }

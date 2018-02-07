@@ -16,7 +16,4 @@ Space.prototype.drawSpaceBoard = function(){
 Space.prototype.clearSpaceBoard = function(){
   this.ctx.clearRect(0,0,this.width,this.height)
 }
-Space.prototype.updateSpaceBoard = function(){
-  myGame.spaceBoard.clearSpaceBoard();
-  myGame.spaceBoard.drawSpaceBoard();
-}
+

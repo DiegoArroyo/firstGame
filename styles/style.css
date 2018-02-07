@@ -12,5 +12,7 @@ body{
   color: lime;
 }
 .game-space{
-  margin: 20px, 0px;
+  display: flex;
+  margin: 30px 50px 50px 50px;
+  justify-content: center;
 }
