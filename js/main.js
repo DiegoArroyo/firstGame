@@ -22,7 +22,7 @@ function updateGame(){
     myGame.bullets[i].moveBullet()
   }
   drawAsteroids();
-  //drawEnemies(); 
+  drawEnemies(); 
   playerAsteroids();
   playerEnemies();
   bulletAsteroids();
