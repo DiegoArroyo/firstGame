@@ -1,18 +1,28 @@
 body{
-  background-color: white;
+  background-color: black;
   margin: 0;
   padding: 0;
-
-}
-.space-set{
-  display: flex;
-  align-items: center;
-  align-content: center;
   text-align: center;
-  color: lime;
 }
-.game-space{
+h1{
+  font-size: 70px;
+  text-transform: uppercase;
+  color: #fff;
+  margin: 0;
+}
+body button {
+  font-size: 20px;
+  background-color: #fff;
+  color: black;
+  padding: 10px 20px;
+  border: 0;
+  box-shadow: 0;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.game-board{
+  margin: 8px 50px 15px 50px;
   display: flex;
-  margin: 30px 50px 50px 50px;
   justify-content: center;
 }

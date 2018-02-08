@@ -5,4 +5,5 @@ function Game(canvas){
   this.bullets = [];
   this.bullets2 = [];
   this.enemies = [];
+  this.boss = [];
 }
