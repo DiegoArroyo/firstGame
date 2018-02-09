@@ -7,7 +7,7 @@
   <title>Space Run</title>
   <link rel="stylesheet" href="./styles/style.css">
   <script
-  src="http://code.jquery.com/jquery-3.3.1.min.js"
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>
   <script src="./js/objects/bullet.js"></script>
@@ -15,18 +15,25 @@
   <script src="./js/objects/space.js"></script>
   <script src="./js/objects/asteroids.js"></script>
   <script src="./js/objects/enemies.js"></script>
+  <script src="./js/objects/bigBoss.js"></script>
   <script src="./js/Game.js"></script>
   <script src="./js/main.js"></script>
 </head>
 <body>
+  <figure class="title-page">
+      <img class="awesome-space" src="./images/logo_sep.png" alt="title-image">
+  </figure>
   <div class="space-set">
-    <div class="title">
-    <h1>AweSome Space Shooter</h1>
-    </div>
-    <div class="game-board">
-    <canvas id="space-board" width="1300" height="500" ></canvas>
-    </div>
+    <div class="menu">
     <button class="start-button">Start Game</button>
+    <button class="reset-button">Reset Game</button>
+    </div>
   </div>
+  <div class="game-board">
+      <canvas id="space-board" width="1300" height="500" ></canvas>      
+  </div>
+  <figure class="game-over">
+    
+  </figure>
 </body>
 </html>

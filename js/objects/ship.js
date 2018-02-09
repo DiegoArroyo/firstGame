@@ -69,16 +69,21 @@ function playerAsteroids(){
 }
 
 function playerEnemies(){
-  myGame.enemies.forEach(function(enemie){
-    if(myGame.player1.crashWith(enemie)){
-      var en = myGame.enemies.indexOf(enemie)
-      myGame.enemies.splice(en,1)
+  myGame.enemies.forEach(function(enemy){
+    if(myGame.player1.crashWith(enemy)){
+      var eny = myGame.enemies.indexOf(enemy)
+      myGame.enemies.splice(eny,1)
       myGame.player1.lives --
     }
     if(enemie.posX <0 ){
-      myGame.enemies.splice(enemie,1)
+      myGame.enemies.splice(enemy,1)
     }
   });
+}
+function playerBigBoss(){
+    if(myGame.player1.crashWith(myGame.boss)){
+      myGame.player1.lives -= myGame.player1.lives
+    }
 }
 //Checara cuantas vidas tiene y cuantas se le quitan por colision o disparo enemigo
 //Se le puden agregar vidas si mata enemigos o las recoge
@@ -86,10 +91,19 @@ SpaceShip.prototype.playerLives = function(){
   this.ctx.font ="20px Arial";
   this.ctx.fillStyle = "#fff";
   //Tratar de cambiar por una barra que vaya disminuyendo su color de relleno con cada vida 
-  this.ctx.fillText("Lives "+ this.lives, this.posX + (this.width*0.34),this.posY);
-
+  this.ctx.fillText("Player1 - Lives: "+ this.lives, this.posX + 100,20);
   if(this.lives === 0){
-    stopGame();
+//    $("canvas").css("display","none")
+  this.ctx.font = "100px Arial";
+  this.ctx.fillStyle = "lime";
+  this.ctx.strokeStyle = "black";
+  this.ctx.fillText("GAME OVER", 330,250);
+  this.ctx.strokeText("GAME OVER", 330,250);
+  this.ctx.font = "20px Arial";
+  this.ctx.fillStyle = "white";
+  this.ctx.strokeStyle = "black";
+  this.ctx.fillText("Click RESET GAME", 720,300);
+  stopGame();
   }
   // if(powerUp()){
   //   this.lives ++
@@ -99,5 +113,5 @@ SpaceShip.prototype.playerScore = function(){
   this.ctx.font ="20px Arial";
   this.ctx.fillStyle = "#fff";
   //Tratar de cambiar por una barra que vaya disminuyendo su color de relleno con cada vida 
-  this.ctx.fillText("Score "+ this.score , this.posX + (this.width*0.34),this.posY + (this.height + 12));
+  this.ctx.fillText("Score: "+ this.score,300,20);
 }

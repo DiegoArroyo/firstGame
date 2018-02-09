@@ -1,4 +1,3 @@
-
 function Enemies(canvas,posX,posY,speedX,speedY,width,height){
   this.ctx = canvas;
   this.posX = posX
@@ -8,7 +7,7 @@ function Enemies(canvas,posX,posY,speedX,speedY,width,height){
   this.width = width;
   this.height = height;
   this.img = new Image();
-  this.img.src = "images/ScaryTerry.png";
+  this.img.src = "images/War_Prism.png";
   this.image = new Image();
   
   //porpiedades para checar si mi objeto choca con otro.
@@ -33,7 +32,7 @@ function generateEnemies(){
 
 function drawEnemies(){
   if(frames % 150 === 0) generateEnemies();
-  myGame.enemies.forEach(function(enemie){
-    enemie.drawEnemies();
+  myGame.enemies.forEach(function(enemy){
+    enemy.drawEnemies();
   });
 }

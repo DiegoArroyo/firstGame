@@ -17,11 +17,11 @@ function Asteroids(canvas,posX,posY,speedX,speedY,width,height){
 }
 Asteroids.prototype.directionAsteroid = function (){
   if (this.posY < 0) {
-    this.speedY = 8
-    this.speedX --
+    this.speedY = 12
+    //this.speedX --
   } else if(this.posY + this.height > myGame.spaceBoard.height){
-    this.speedY = -5
-    this.speedX +=2
+    this.speedY = -12
+    //this.speedX --
   }
 }
 
@@ -33,7 +33,7 @@ Asteroids.prototype.updateAsteroid = function (){
 
 Asteroids.prototype.drawAsteroid = function(){
   this.ctx.drawImage(this.img,this.posX,this.posY,this.width,this.height)
-  // this.posX -= this.speedX;
+  this.posX -= this.speedX;
   this.updateAsteroid();
 }
 
@@ -41,12 +41,12 @@ function generateAsteroids(){
   var y = Math.floor((Math.random()*420)+0);
   var x = 1300;
   if(frames < 1000){
-    myGame.asteroids.push(new Asteroids(canvas,x, y,2,-5,100,80))
+    myGame.asteroids.push(new Asteroids(canvas,x, y,2,-10,100,80))
   }
 }
 
 function drawAsteroids(){
-  if(frames % 200 === 0) generateAsteroids();
+  if(frames % 100 === 0) generateAsteroids();
     myGame.asteroids.forEach(function(asteroid){
     asteroid.drawAsteroid();
   });

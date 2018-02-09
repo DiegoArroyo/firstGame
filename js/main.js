@@ -5,6 +5,8 @@ var frames = 0;
 var interval;
 $(document).ready(function(){
   $(".start-button").on("click", function(){
+    $("canvas").css("display","block")
+    $(".awesome-space").css("display","none")
     canvas = document.getElementById("space-board").getContext('2d');
     myGame = new Game (canvas);
     keyListenerPlayers();
@@ -13,18 +15,17 @@ $(document).ready(function(){
 });
 function updateGame(){
   frames++;
-  myGame.player1.score ++;
-  // console.log(frames)
   myGame.spaceBoard.clearSpaceBoard();
   myGame.spaceBoard.drawSpaceBoard();
   for(i=0; i<myGame.bullets.length; i ++){
     myGame.bullets[i].drawBullet()
     myGame.bullets[i].moveBullet()
   }
-  drawAsteroids();
+  //drawAsteroids();
   drawEnemies(); 
   playerAsteroids();
   playerEnemies();
+  playerBigBoss();
   bulletAsteroids();
   bulletEnemies();
 }
@@ -47,10 +48,10 @@ function keyListenerPlayers(){
        break;
       case 16://Q 81
       if(myGame.bullets.length < myGame.player1.limitBullet){
-        myGame.bullets.push(new Bullet(canvas,myGame.player1.posX + 150, myGame.player1.posY+(myGame.player1.height/2),6,5,"lime"))        
-        
+        myGame.bullets.push(new Bullet(canvas,myGame.player1.posX + 150, myGame.player1.posY+(myGame.player1.height/2),25,5,"lime"))
+        console.log(myGame.bullets)
       }else{
-        sole.log('no puedes')
+        console.log('no puedes')
       }
       break;
       case 87: //up 38
@@ -78,3 +79,6 @@ function keyListenerPlayers(){
 function stopGame(){
   clearInterval(interval);
 }
+$(".reset-button").on("click", function(){
+  
+});

@@ -5,7 +5,6 @@ function Bullet(canvas,posX,posY,speedX,radius,color){
   this.speedX = speedX;
   this.radius = radius;
   this.color = color;
-  this.points = 0;
   this.drawBullet();
   //porpiedades para checar si mi objeto choca con otro.
   this.left =   function()  { return  this.posX                };
@@ -22,14 +21,6 @@ Bullet.prototype.drawBullet = function(){
   this.ctx.fillStyle = this.color;
   this.ctx.fill();
 }
-
-Bullet.prototype.drawBulletPoints = function(){
-  this.ctx.font ="2px Arial";
-  this.ctx.fillStyle = "#fff";
-  //Tratar de cambiar por una barra que vaya disminuyendo su color de relleno con cada vida 
-  this.ctx.fillText("+ " + this.score + " Points" , this.posX + (this.width),this.posY + (this.height));
-}
-
 
 Bullet.prototype.moveBullet = function(){
   this.posX += this.speedX;
@@ -60,9 +51,7 @@ function bulletEnemies(){
   myGame.enemies.forEach(function(enemie){
     myGame.bullets.forEach(function(bullet){
       if(bullet.crashWith(enemie)){
-        // bullet.drawBulletPoints();
-        
-        myGame.player1.score += 15
+        myGame.player1.score += 10
       var j = myGame.bullets.indexOf(bullet)
         myGame.bullets.splice(j,1)
       var z = myGame.enemies.indexOf(enemie)
