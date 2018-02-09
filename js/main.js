@@ -3,6 +3,7 @@ var myGame;
 var fps = 20;
 var frames = 0;
 var interval;
+var music = new Audio();
 $(document).ready(function(){
   $(".start-button").on("click", function(){
     $("canvas").css("display","block")
@@ -10,6 +11,7 @@ $(document).ready(function(){
     canvas = document.getElementById("space-board").getContext('2d');
     myGame = new Game (canvas);
     keyListenerPlayers();
+    music.src ="battle1_1.ogg";
     interval = setInterval(updateGame,1000/fps);
   });
 });
