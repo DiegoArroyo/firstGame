@@ -37,7 +37,6 @@ function bulletAsteroids(){
   myGame.asteroids.forEach(function(asteroid){
     myGame.bullets.forEach(function(bullet){
       if(bullet.crashWith(asteroid)){
-        console.log("({})")
         var index = myGame.bullets.indexOf(bullet)
         myGame.bullets.splice(index,1)
         myGame.player1.limitBullet--
@@ -45,18 +44,57 @@ function bulletAsteroids(){
       }
     });
   });
+  myGame.asteroids.forEach(function(asteroid){
+    myGame.bullets2.forEach(function(bullet2){
+      if(bullet2.crashWith(asteroid)){
+        var ind = myGame.bullets2.indexOf(bullet2)
+        myGame.bullets2.splice(ind,1)
+        myGame.player2.limitBullet2 --
+        myGame.player2.score2 -= 6
+      }
+    });
+  });
 }
 
 function bulletEnemies(){
-  myGame.enemies.forEach(function(enemie){
+  myGame.enemies.forEach(function(enemy){
     myGame.bullets.forEach(function(bullet){
-      if(bullet.crashWith(enemie)){
+      if(bullet.crashWith(enemy)){
         myGame.player1.score += 10
       var j = myGame.bullets.indexOf(bullet)
         myGame.bullets.splice(j,1)
-      var z = myGame.enemies.indexOf(enemie)
+      var z = myGame.enemies.indexOf(enemy)
         myGame.enemies.splice(z,1)
       }
     });
+  });
+  myGame.enemies.forEach(function(enemy2){
+    myGame.bullets2.forEach(function(bullet2){
+      if(bullet2.crashWith(enemy2)){
+        myGame.player2.score2 += 10
+      var k = myGame.bullets2.indexOf(bullet2)
+        myGame.bullets2.splice(k,1)
+      var w = myGame.enemies.indexOf(enemy2)
+        myGame.enemies.splice(w,1)
+      }
+    });
+  });
+}
+function bulletBigBoss(){
+  myGame.bullets2.forEach(function(bullet2){
+    if(bullet2.crashWith(myGame.boss)){
+      myGame.player2.score2 += 20
+    var k = myGame.bullets2.indexOf(bullet2)
+      myGame.bullets2.splice(k,1)
+      myGame.boss.life --
+    }
+  });
+  myGame.bullets.forEach(function(bullet){
+    if(bullet.crashWith(myGame.boss)){
+      myGame.player1.score += 20
+    var w = myGame.bullets.indexOf(bullet)
+      myGame.bullets.splice(w,1)
+      myGame.boss.life --
+    }
   });
 }

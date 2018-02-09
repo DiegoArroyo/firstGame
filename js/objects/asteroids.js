@@ -24,7 +24,6 @@ Asteroids.prototype.directionAsteroid = function (){
     //this.speedX --
   }
 }
-
 Asteroids.prototype.updateAsteroid = function (){
   this.posY += this.speedY
   this.posX -= this.speedX;
@@ -49,5 +48,8 @@ function drawAsteroids(){
   if(frames % 100 === 0) generateAsteroids();
     myGame.asteroids.forEach(function(asteroid){
     asteroid.drawAsteroid();
+    if(asteroid.posX < 0){
+      myGame.asteroids.splice(asteroid,1)
+    }
   });
 }

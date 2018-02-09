@@ -34,5 +34,8 @@ function drawEnemies(){
   if(frames % 150 === 0) generateEnemies();
   myGame.enemies.forEach(function(enemy){
     enemy.drawEnemies();
+    if(enemy.posX <0 ){
+      myGame.enemies.splice(enemy,1)
+    }
   });
 }

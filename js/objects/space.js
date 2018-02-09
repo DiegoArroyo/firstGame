@@ -9,9 +9,7 @@ function Space (canvas,width,height){
 Space.prototype.drawSpaceBoard = function(){
   this.ctx.drawImage(this.img, 0, 0, this.width, this.height)
   myGame.player1.drawSpaceShip();
-  myGame.player1.playerLives();
-  myGame.player1.playerScore();
-  myGame.boss.drawBigBoss();
+  myGame.player2.drawSpaceShip2();
 }
 Space.prototype.clearSpaceBoard = function(){
   this.ctx.clearRect(0,0,this.width,this.height)
